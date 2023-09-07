@@ -3,6 +3,6 @@ const apiController = require('../controllers/apiController');
 
 const router = Router();
 
-router.get('/api/data', apiController.getSlackUser);
+router.get('/api', apiController.getSlackUser);
 
 module.exports = router;
