@@ -22,7 +22,7 @@ const getSlackUser = (req, res) => {
 
     const utc_time = getCurrentUTCTime();
 
-    const slackUser = {
+    res.status(200).json({
       slack_name: slack_name,
       current_day: getCurrentDayOfWeek,
       utc_time: utc_time,
@@ -30,8 +30,7 @@ const getSlackUser = (req, res) => {
       github_file_url: 'https://github.com/abdullah43577/HNGx-Internship-Programme/blob/master/HNGx%20Stage%201/server.js',
       github_repo_url: 'https://github.com/abdullah43577/HNGx-Internship-Programme/tree/master/HNGx%20Stage%201',
       status_code: 200,
-    };
-    res.status(200).json({ slackUser });
+    });
   } catch (err) {
     console.log(err);
     res.status(400).json({ message: err.message });
