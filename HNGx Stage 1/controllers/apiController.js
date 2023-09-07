@@ -13,7 +13,9 @@ const getCurrentUTCTime = function () {
 };
 
 const getSlackUser = (req, res) => {
-  const { slack_name, track } = req.params;
+  const { slack_name, track } = req.query;
+
+  console.log(req.query);
 
   const getCurrentDayOfWeek = new Date().toLocaleString('en-us', { weekday: 'long' });
 
@@ -24,8 +26,8 @@ const getSlackUser = (req, res) => {
     current_day: getCurrentDayOfWeek,
     utc_time: utc_time,
     track: track,
-    github_file_url: 'https://github.com/username/repo/blob/main/file_name.ext',
-    github_repo_url: 'https://github.com/username/repo',
+    github_file_url: 'https://github.com/abdullah43577/HNGx-Internship-Programme/blob/master/HNGx%20Stage%201/server.js',
+    github_repo_url: 'https://github.com/abdullah43577/HNGx-Internship-Programme/tree/master/HNGx%20Stage%201',
     status_code: 200,
   };
   res.status(200).json({ slackUser });
