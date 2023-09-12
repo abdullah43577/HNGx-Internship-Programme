@@ -1,6 +1,10 @@
 const User = require('../model/User');
 const mongoose = require('mongoose');
 
+const api_test = function (req, res) {
+  res.status(200).json({ message: 'test successful' });
+};
+
 const api_post_create_user = async (req, res) => {
   const { name } = req.body;
   if (!name) throw Error('name not provided');
@@ -79,6 +83,7 @@ const api_delete_deleteUser = async (req, res) => {
 };
 
 module.exports = {
+  api_test,
   api_post_create_user,
   api_get_getUserDetails,
   api_put_updateUser,
