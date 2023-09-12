@@ -7,7 +7,12 @@ const api_test = function (req, res) {
 
 const api_post_create_user = async (req, res) => {
   const { name } = req.body;
-  if (!name) throw Error('name not provided');
+
+  if (!name) {
+    res.status(400).json({ message: 'name not provided' });
+    return;
+  }
+
   try {
     const user = await User.create({ name });
     res.status(201).json({ message: 'user created', user });
@@ -20,7 +25,10 @@ const api_get_getUserDetails = async (req, res) => {
   try {
     const { query } = req.query;
 
-    if (!query) throw Error('query of either an id or name was not provided');
+    if (!query) {
+      res.status(400).json({ message: 'query of either an id or name was not provided' });
+      return;
+    }
 
     let user;
 
@@ -43,7 +51,10 @@ const api_put_updateUser = async (req, res) => {
     const { query } = req.query;
     const { name } = req.body;
 
-    if (!query || !name) throw new Error('query and/or name not provided');
+    if (!query || !name) {
+      res.status(400).json({ message: 'query of either an id or name was not provided' });
+      return;
+    }
 
     let user;
 
@@ -64,7 +75,10 @@ const api_put_updateUser = async (req, res) => {
 const api_delete_deleteUser = async (req, res) => {
   try {
     const { query } = req.query;
-    if (!query) throw Error('query of either an id or name was not provided');
+    if (!query) {
+      res.status(400).json({ message: 'query of either an id or name was not provided' });
+      return;
+    }
 
     let user;
 
