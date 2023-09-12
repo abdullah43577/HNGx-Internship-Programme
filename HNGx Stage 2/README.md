@@ -77,3 +77,7 @@ Each of the specified endpoints above creates, read, update and delete a user fr
 - Response: `{"message": "user deleted"}`
 
 # Testing Scripts
+
+# UML Diagram
+
+![UML Diagram](./UML.png)
