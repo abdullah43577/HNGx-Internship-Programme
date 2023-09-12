@@ -61,7 +61,7 @@ Each of the specified endpoints above creates, read, update and delete a user fr
 
 - get user details by ID or name
 - parameters: - `query` (string): User ID or name
-- Response: `{ "message": "user found", "user": { "id": 1, "name": "Mike Essien" } }`
+- Response: `{ "message": "user found", "user": { "id": dynamicIdGeneratedByMongoose, "name": "Mike Essien" } }`
 
 ### PUT /api
 
@@ -76,4 +76,4 @@ Each of the specified endpoints above creates, read, update and delete a user fr
 - parameters: - `query` (string): User ID or name
 - Response: `{"message": "user deleted"}`
 
-# Testing
+# Testing Scripts
