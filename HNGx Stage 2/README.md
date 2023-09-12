@@ -78,83 +78,77 @@ Each of the specified endpoints above creates, read, update and delete a user fr
 
 # Testing Scripts
 
-```json
+```js
 // Testing scripts for Creating users
-if(pm.response.code === 500) {
-    pm.test("Create User - Name is required", function() {
-         pm.expect(pm.response.json()).to.have.property("message", "error creating user");
-    })
-} else if(pm.response.code === 400){
-    pm.test("Create User - No Name", function () {
-    pm.expect(pm.response.json()).to.have.property("message", "name not provided");
-});
-}
-else if(pm.response.code === 200){
-    pm.test("Create User - Successful", function () {
-    pm.expect(pm.response.json()).to.have.property("message", "user created");
-    pm.expect(pm.response.json()).to.have.property("user");
-});
+if (pm.response.code === 500) {
+  pm.test('Create User - Name is required', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'error creating user');
+  });
+} else if (pm.response.code === 400) {
+  pm.test('Create User - No Name', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'name not provided');
+  });
+} else if (pm.response.code === 200) {
+  pm.test('Create User - Successful', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'user created');
+    pm.expect(pm.response.json()).to.have.property('user');
+  });
 }
 
 // Testing scripts for getting users info
 // Test script for getDeveloper
 
 if (pm.response.code === 200) {
-    pm.test("Get User - Successful", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "user found");
-        pm.expect(pm.response.json()).to.have.property("user");
-        pm.expect(pm.response.json().user).to.have.property("_id");
-        pm.expect(pm.response.json().user).to.have.property("name");
-    });
+  pm.test('Get User - Successful', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'user found');
+    pm.expect(pm.response.json()).to.have.property('user');
+    pm.expect(pm.response.json().user).to.have.property('_id');
+    pm.expect(pm.response.json().user).to.have.property('name');
+  });
 } else if (pm.response.code === 500) {
-    pm.test("Get User - Not Found", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "error getting user info");
-    });
-} else if(pm.response.code == 400){
-     pm.test("Get User - Bad Query", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "query of either an id or name was not provided");
-    });
+  pm.test('Get User - Not Found', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'error getting user info');
+  });
+} else if (pm.response.code == 400) {
+  pm.test('Get User - Bad Query', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'query of either an id or name was not provided');
+  });
 }
 
 // Testing scripts for updating user info
 
-
 if (pm.response.code === 200) {
-    pm.test("Update User - Successful", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "user updated");
-        pm.expect(pm.response.json()).to.have.property("user");
-        pm.expect(pm.response.json().user).to.have.property("_id");
-        pm.expect(pm.response.json().user).to.have.property("name");
-    });
+  pm.test('Update User - Successful', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'user updated');
+    pm.expect(pm.response.json()).to.have.property('user');
+    pm.expect(pm.response.json().user).to.have.property('_id');
+    pm.expect(pm.response.json().user).to.have.property('name');
+  });
 } else if (pm.response.code === 500) {
-    pm.test("Update User - Not Found", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "error updating user info");
-    });
-} else if(pm.response.code === 400){
-    pm.test("Update User - Name not Provided", function (){
-        pm.expect(pm.response.json()).to.have.property("message", "query of either an id or name was not provided")
-    })
+  pm.test('Update User - Not Found', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'error updating user info');
+  });
+} else if (pm.response.code === 400) {
+  pm.test('Update User - Name not Provided', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'query of either an id or name was not provided');
+  });
 }
 
 // Test script for deleting users
 
-
 if (pm.response.code === 200) {
-    pm.test("Delete User - Successful", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "user deleted");
-    });
+  pm.test('Delete User - Successful', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'user deleted');
+  });
 } else if (pm.response.code === 500) {
-    pm.test("Delete User - Not Found", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "error deleting user");
-    });
-} else if (pm.response.code === 400){
-    pm.test("Delete User - No Query", function () {
-        pm.expect(pm.response.json()).to.have.property("message", "query of either an id or name was not provided");
-    });
+  pm.test('Delete User - Not Found', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'error deleting user');
+  });
+} else if (pm.response.code === 400) {
+  pm.test('Delete User - No Query', function () {
+    pm.expect(pm.response.json()).to.have.property('message', 'query of either an id or name was not provided');
+  });
 }
-
-
-
 ```
 
 # UML Diagram
