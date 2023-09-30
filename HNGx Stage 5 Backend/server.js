@@ -9,7 +9,7 @@ const router = require('./routes/routes');
 const app = express();
 
 app.use(morgan('dev'));
-const options = { origin: ['http://127.0.0.1:8080', 'https://recorder-api-3h2m.onrender.com'], credentials: true };
+const options = { origin: '*', credentials: true };
 app.use(cors(options));
 app.use(express.urlencoded({ limit: '200mb', extended: true }));
 app.use(express.json({ limit: '200mb' })); // parse json data from the request body
