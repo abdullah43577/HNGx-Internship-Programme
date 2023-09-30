@@ -5,11 +5,9 @@ const morgan = require('morgan');
 const cors = require('cors');
 const PORT = process.env.PORT;
 const router = require('./routes/routes');
-// const multer = require('multer');
 
 const app = express();
-// const storage = multer.memoryStorage(); // multer memory storage engine to store files as Buffer objects
-// const upload = multer({ storage: storage }); // multer upload object
+
 app.use(morgan('dev'));
 const options = { origin: 'http://127.0.0.1:8080', credentials: true };
 app.use(cors(options));

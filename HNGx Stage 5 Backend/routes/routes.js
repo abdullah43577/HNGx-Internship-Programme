@@ -1,6 +1,5 @@
 const { Router } = require('express');
 const controller = require('../controller/controller');
-// const upload = require('../server').upload;
 
 const router = Router();
 

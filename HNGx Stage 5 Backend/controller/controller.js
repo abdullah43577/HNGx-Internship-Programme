@@ -1,6 +1,5 @@
-const Recordings = require('../model/recordingschema');
+const Recordings = require('../model/recordingSchema');
 const { cloudinary } = require('../utils/cloudinary');
-// const multer = require('multer');
 
 const api_welcome_get = (req, res) => {
   res.status(200).json({ message: 'Hello World!' });
