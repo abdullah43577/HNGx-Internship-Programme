@@ -1,4 +1,4 @@
-const Recordings = require('../model/Recordingschema');
+const Recordings = require('../model/recordingschema');
 const { cloudinary } = require('../utils/cloudinary');
 // const multer = require('multer');
 
