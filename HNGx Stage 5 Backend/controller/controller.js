@@ -8,6 +8,11 @@ const api_welcome_get = (req, res) => {
 const api_save_recording_post = async (req, res) => {
   try {
     const data = req.body;
+
+    if (!data) {
+      return res.status(400).json({ status: 'Error', message: 'Invalid data request, please make sure you are sending the correct data to the backend!' });
+    }
+
     const recording = data.recording;
 
     // uploading to cloudinary
@@ -39,6 +44,10 @@ const api_get_single_recording = async (req, res) => {
     const { id } = req.params;
     console.log(id);
 
+    if (!id) {
+      return res.status(400).json({ status: 'Error', message: 'Invalid recording ID request!' });
+    }
+
     const recording = await Recordings.findById(id);
     res.status(200).json({ message: 'success', data: recording });
   } catch (err) {
@@ -50,6 +59,10 @@ const api_update_recording_title = async (req, res) => {
   try {
     const { id } = req.params;
     console.log(id);
+
+    if (!id) {
+      return res.status(400).json({ status: 'Error updating recording title', message: 'Invalid recording ID request!' });
+    }
 
     // update title of a specific video
     const recording = await Recordings.findByIdAndUpdate(id, { title }, { new: true });
