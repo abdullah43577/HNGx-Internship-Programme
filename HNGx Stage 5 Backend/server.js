@@ -9,7 +9,7 @@ const router = require('./routes/routes');
 const app = express();
 
 app.use(morgan('dev'));
-const options = { origin: '*', credentials: true };
+const options = { origin: '*' };
 app.use(cors(options));
 app.use(express.urlencoded({ limit: '200mb', extended: true }));
 app.use(express.json({ limit: '200mb' })); // parse json data from the request body
